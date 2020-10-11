@@ -1,2 +1,2 @@
-# aqi
-Building models to predict AQI 
+# AQI
+Air Quality Prediction
