@@ -1,6 +1,8 @@
 import requests
 import json
 import base64
+import os
+import pathlib
 headers = {'Origin': 'https://app.cpcbccr.com'}
 headers['Accept-Encoding'] ="gzip, deflate, br"
 headers['Accept-Language'] ="en-GB,en-US;q=0.9,en;q=0.8"
@@ -23,30 +25,46 @@ f.write("state, city, station,fromDate, AT, BP, PM10, PM2.5, RH, SR, Temp, Tolue
 # 10 stations - which have data from 2017 to 2020.
 ####2017
 stationList = [
-			   {"city":"Bengaluru", "station":"site_162", "state":"Karnataka"}
-			  # {"city": "Navi Mumbai", "station": "site_261", "state": "Mahrashtra"}
-				# {"city":"Delhi", "station":"site_301", "state":"Delhi"},
-				# 			   {"city":"Delhi", "station":"site_108", "state":"Delhi"},
-			   #add more here.
+				{"city":"Delhi", "station":"site_301", "state":"Delhi"},
+				{"city": "Bengaluru", "station": "site_162", "state": "Karnataka"},
+				{"city":"Bengaluru", "station":"site_163", "state":"Karnataka"},
+				{"city": "Bengaluru", "station": "site_164", "state": "Karnataka"},
+				{"city": "Bengaluru", "station": "site_165", "state": "Karnataka"},
+				{"city": "Bengaluru", "station": "site_166", "state": "Karnataka"},
+				{"city": "Aurangabad", "station": "site_198", "state": "Maharastra"},
+				{"city": "Chandrapur", "station": "site_271", "state": "Maharastra"},
+				{"city": "Chandrapur", "station": "site_295", "state": "Maharastra"},
+				{"city": "Nagpur", "station": "site_303", "state": "Maharastra"},
+				{"city": "Nashik", "station": "site_304", "state": "Maharastra"},
+				{"city": "Navi Mumbai", "station": "site_261", "state": "Maharastra"},
+				{"city": "Pune", "station": "site_292", "state": "Maharastra"},
+				{"city": "Solapur", "station": "site_302", "state": "Maharastra"},
+				{"city": "Thane", "station": "site_305", "state": "Maharastra"}
 			   ]
 
 #Yamini to populate
 ###
+
+
+
+parentPath = str(pathlib.Path(__file__).parent.parent)
+jsonTemplateFile = parentPath  + '/data/raw/requestTemplate.json'
+
 staticFeatures = ["AT", "BP", "PM10", "PM2.5", "RH", "SR", "Temp", "Toluene", "WD", "WS", "CO", "Benzene","Xylene", "NH3", "NO", "NO2", "NOx", "Ozone", "SO2"]
 for stationDict in stationList:
 	print(stationDict['state'])
 	print(stationDict['city'])
 	print(stationDict['station'])
 	dataTemplate = ""
-	with open('../data/raw/templateRequest.json', 'r') as fileTemplate:
+	with open(jsonTemplateFile, 'r') as fileTemplate:
 		dataTemplate = fileTemplate.read().replace('\n', '')
 
 	newState ='"state": "' + stationDict['state'] +'"'
 	newCity = '"city": "' + stationDict['city'] + '"'
 	newStation='"station": "' + stationDict['station'] + '"'
 
-	d1 = dataTemplate.replace('"fromDate": "$$"', '"fromDate": "17-10-2020 T00:00:00Z"')
-	d2 = d1.replace('"toDate": "$$"', '"toDate": "18-10-2020 T00:00:00Z"')
+	d1 = dataTemplate.replace('"fromDate": "$$"', '"fromDate": "17-01-2018 T00:00:00Z"')
+	d2 = d1.replace('"toDate": "$$"', '"toDate": "18-01-2018 T00:00:00Z"')
 	d3 = d2.replace('"state": "$$"',newState)
 	d4 = d3.replace('"city": "$$"', newCity)
 	d5 = d4.replace('"station": "$$"',newStation )
