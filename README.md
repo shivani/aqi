@@ -69,16 +69,9 @@ IHI = 400, ILO = 301, BHI= 430, BLO = 351
 Ip = 313
 
 _This result matches the one in the AQI Calculator._
+ 
 
-**Observation No 3:**
-
-**AQIPY Library:**
-
-This is a custom library which has AQI calculators of 10countries. I have used aqi\_in.py to get aqi. Unfortunately the results are incorrect.
-
-![](RackMultipart20201124-4-13titrp_html_7e0d8ea66186e68.png)
-
-The result is the same i.e. 500 for different set of inputs.
+ 
 
 Resources:
 
