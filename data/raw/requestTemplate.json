@@ -28,11 +28,11 @@
         "city": "$$",
         "station": "$$",
         "parameter": ["parameter_204", "parameter_238", "parameter_215", "parameter_193", "parameter_235",
-                      "parameter_237", "parameter_198", "parameter_232", "parameter_234", "parameter_233",
-                      "parameter_203", "parameter_202", "parameter_324", "parameter_311", "parameter_226",
+                      "parameter_237", "parameter_232", "parameter_234", "parameter_233",
+                      "parameter_203", "parameter_202", "parameter_311", "parameter_226",
                       "parameter_194", "parameter_225", "parameter_222", "parameter_312"],
-        "parameterNames": ["AT", "BP", "PM10", "PM2.5", "RH", "SR", "Temp", "Toluene", "WD", "WS", "CO", "Benzene",
-                           "P-Xylene", "NH3", "NO", "NO2", "NOx", "Ozone", "SO2"]
+        "parameterNames": ["AT", "BP", "PM10", "PM2.5", "RH", "SR",  "Toluene", "WD", "WS", "CO", "Benzene",
+                            "NH3", "NO", "NO2", "NOx", "Ozone", "SO2"]
     },
     "pagination": 1
 }
